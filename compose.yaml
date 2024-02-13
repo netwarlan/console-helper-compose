@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  helper1:
+    image: console-helper
+    volumes:
+      - ./cache:/app/cache
+    environment:
+      NXAPI_PROTOCOL: https
+      NXAPI_HOST: 10.10.0.6
+      NXAPI_PORT: 443
+      NXAPI_USERNAME: admin
+      NXAPI_PASSWORD: 4Baseball!
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
+      DESIRED_CONSOLE_VLAN: 101
+      CACHE_DIR: cache
+
+  helper2:
+    depends_on:
+      helper1:
+        condition: service_completed_successfully
+    image: console-helper
+    volumes:
+      - ./cache:/app/cache
+    environment:
+      NXAPI_PROTOCOL: https
+      NXAPI_HOST: 10.10.0.6
+      NXAPI_PORT: 443
+      NXAPI_USERNAME: admin
+      NXAPI_PASSWORD: 4Baseball!
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
+      DESIRED_CONSOLE_VLAN: 101
+      CACHE_DIR: cache
