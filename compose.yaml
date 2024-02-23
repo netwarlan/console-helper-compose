@@ -2,7 +2,7 @@ version: '3'
 
 services:
   helper1:
-    image: console-helper
+    image: ghcr.io/netwarlan/console-helper
     volumes:
       - ./cache:/app/cache
     environment:
@@ -19,7 +19,7 @@ services:
     depends_on:
       helper1:
         condition: service_completed_successfully
-    image: console-helper
+    image: ghcr.io/netwarlan/console-helper
     volumes:
       - ./cache:/app/cache
     environment:
