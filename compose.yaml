@@ -7,12 +7,12 @@ services:
       - ./cache:/app/cache
     environment:
       NXAPI_PROTOCOL: https
-      NXAPI_HOST: 10.10.0.6
+      NXAPI_HOST: 10.10.10.1
       NXAPI_PORT: 443
       NXAPI_USERNAME: ${NXAPI_USERNAME}
       NXAPI_PASSWORD: ${NXAPI_PASSWORD}
       NODE_TLS_REJECT_UNAUTHORIZED: 0
-      DESIRED_CONSOLE_VLAN: 101
+      DESIRED_CONSOLE_VLAN: 5
       CACHE_DIR: cache
 
   helper2:
@@ -24,10 +24,10 @@ services:
       - ./cache:/app/cache
     environment:
       NXAPI_PROTOCOL: https
-      NXAPI_HOST: 10.10.0.6
+      NXAPI_HOST: 10.10.10.2
       NXAPI_PORT: 443
       NXAPI_USERNAME: ${NXAPI_USERNAME}
       NXAPI_PASSWORD: ${NXAPI_PASSWORD}
       NODE_TLS_REJECT_UNAUTHORIZED: 0
-      DESIRED_CONSOLE_VLAN: 101
+      DESIRED_CONSOLE_VLAN: 5
       CACHE_DIR: cache
